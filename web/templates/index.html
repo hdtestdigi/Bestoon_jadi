@@ -1,0 +1,99 @@
+{% extends "template.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-info" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <a href="http://jadi.net/tags/بستون">
+این برنامه شدیدا در حال توسعه است. اینجا را ببینید
+      </a>
+    </div>
+  </div>
+</div>
+
+
+  {% if message %}
+  <div class="bs-callout bs-callout-info">
+    <h5>{{ message }}</h5>
+  </div>
+  {% endif %}
+
+
+
+<div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">بستون</h3>
+        </div>
+        <div class="panel-body">
+
+<p>
+  بستون یک پروژه اش که قدم به قدم توش سعی می کنیم سیستمی درست کنیم که می شه خرج و دخل رو باهاش نگه داشت.
+  فعلا در ابتدای راهیم و برای استفاده ازش عملا باید یک گیک علاقمند باشنی.
+</p>
+<p>
+برای باز کردن اکانت
+<a href=/accounts/register/>به صفحه رجیستر شدن برین</a>
+و برای اطلاعات بیشتر مراجعه بکنین به
+<a href="http://github.com/jadijadi/bestoon/">
+  گیت هاب پروژه.
+</a>
+</p>
+        </div>
+      </div>
+
+
+<br /><br />
+
+
+
+</div>
+
+
+
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+<script >
+$(document).ready(function () {
+        $(".subtaskinput").fadeOut(0);
+        $('.fa-square-o').hover(function () {
+            $(this).addClass('fa-check-square-o');
+            $(this).removeClass('fa-square-o');
+        }, function () {
+            $(this).addClass('fa-square-o');
+            $(this).removeClass('fa-check-square-o');
+        });
+
+});
+
+function showsubtaskinput(elementid){
+  if ($('.btn-'+elementid).text() == '+') {
+    $('.subtask-'+elementid).fadeIn(250);
+    $('.subtask-'+elementid).focus();
+    $('.btn-'+elementid).text ('-');
+  }
+  else {
+    $('.subtask-'+elementid).fadeOut(250);
+    $('.btn-'+elementid).text ('+');
+  }
+  // دگمه رو عوض کنیم به منفی و اگر منفی رو زد المنت رو حذف کنیم
+  return 0;
+}
+</script>
+
+<script type="text/javascript">
+$(".alert").fadeTo(10000, 500).slideUp(500, function(){
+    $(".alert").slideUp(10000);
+});
+</script>
+{% endblock %}
